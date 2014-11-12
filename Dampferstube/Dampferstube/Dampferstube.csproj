@@ -160,11 +160,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\Banner\Header7.jpg" />
+    <Content Include="Images\Navi\Webseite_05.jpg" />
+    <Content Include="Images\Navi\Webseite_06.jpg" />
+    <Content Include="Images\Sidekick\wolke1.png" />
+    <Content Include="Images\Sidekick\wolke2.png" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="fonts\MARCSC__.TTF" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
