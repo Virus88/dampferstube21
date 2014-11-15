@@ -44,25 +44,6 @@ input[type="email"] {
     width:100%;
     height:150px;
 }
-.navi {
-    background-image: url('../Images/Navi/Webseite_05.jpg');
-    width:100%;
-    height:33px;
-}
-
-.navi ul {
-    list-style:none;
-    padding:0px;
-    font-family:MARCSC__;
-    font-size:26px;
-    font-weight:bold;
-    color:white;
-    
-}
-
-.navi ul li {
-    display:inline;
-}
 .container  {
     margin-top:20px;
     background:rgba(0,0,0,0.25);
@@ -89,3 +70,4 @@ input[type="email"] {
     right:0px;
     z-index:-1;
 }
+

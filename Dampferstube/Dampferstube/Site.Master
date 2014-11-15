@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="Content/Menü.css" rel="stylesheet" />
 </head>
 <body>
     <form runat="server">
@@ -40,27 +40,57 @@
         <div class="main">
             <div class="header">
             </div>
-            <div class="navi">
-                <ul>
-                    <li>Home
-                        
+            <div class="menu">
+                <link href="Content/Menü.css" rel="stylesheet" />
+                <ul class="menu"> <!--/*max 8 submenus */-->
+    <li><a href="../Sites/home.aspx">Home</a></li>
+                    
 
-                    </li>
-                     <li>Rezeptbuch
-                        
-
-                    </li>
-                     <li>Bestand
-                        
-
-                    </li>
-                    <li>Wunschliste
-
-                    </li>
-                    <li>Bewertung
-
-                    </li>
-                </ul>
+    <li><a href="#s1">Rezeptbuch</a>
+        <ul class="submenu">
+            <li><a href="#">Top 10</a></li>
+            <li><a href="#">Marc</a></li>
+            <li><a href="#">Marvin</a></li>
+            <li><a href="#">Miguel</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+        </ul>
+    </li>
+    <li class="active"><a href="#s2">Bewertung</a>
+        <ul class="submenu">
+            <li><a href="#">Liquid</a></li>
+            <li><a href="#">Hardware</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Distributor</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Bestand</a>
+        <ul class="submenu">
+            <li><a href="#">Mischungen</a></li>
+            <li><a href="#">Basis</a></li>
+            <li><a href="#">Aromen</a></li>
+            <li><a href="#">Rechner</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+            <li><a href="#">Submenu</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Wunschliste</a>
+        <ul class="submenu">
+            <li><a href="#">Marc</a></li>
+            <li><a href="#">Marvin</a></li>
+            <li><a href="#">Miguel</a></li>
+            <li><a href="#">Sammelbestellung</a></li>
+    </li>
+        </ul>
+         </ul>
             </div>
             <div class="container body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"> <!--Wichtig! -->
