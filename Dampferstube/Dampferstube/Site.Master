@@ -88,9 +88,10 @@
             <li><a href="#">Marvin</a></li>
             <li><a href="#">Miguel</a></li>
             <li><a href="#">Sammelbestellung</a></li>
+        </ul>
     </li>
         </ul>
-         </ul>
+         
             </div>
             <div class="container body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"> <!--Wichtig! -->

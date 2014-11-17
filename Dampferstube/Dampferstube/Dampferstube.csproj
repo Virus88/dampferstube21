@@ -208,8 +208,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="\\192.168.178.21\wwwroot\Dampferstube\Dampferstube\Site.Master">
-      <Link>Site.Master</Link>
+    <Content Include="Site.Master">
     </Content>
     <Content Include="Sites\home.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -319,14 +318,12 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="\\192.168.178.21\wwwroot\Dampferstube\Dampferstube\Site.Master.cs">
+    <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-      <Link>Site.Master.cs</Link>
     </Compile>
-    <Compile Include="\\192.168.178.21\wwwroot\Dampferstube\Dampferstube\Site.Master.designer.cs">
+    <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-      <Link>Site.Master.designer.cs</Link>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
