@@ -43,7 +43,7 @@
             <div class="menu">
                 <link href="Content/Menü.css" rel="stylesheet" />
                 <ul class="menu"> <!--/*max 8 submenus */-->
-    <li><a href="../Sites/home.aspx">Home</a></li>
+    <li><a href="home.aspx">Home</a></li>
                     
 
     <li><a href="#s1">Rezeptbuch</a>
@@ -61,7 +61,7 @@
     <li class="active"><a href="#s2">Bewertung</a>
         <ul class="submenu">
             <li><a href="#">Liquid</a></li>
-            <li><a href="#">Hardware</a></li>
+            <li><a href="hardware.aspx">Hardware</a></li>
             <li><a href="#">Store</a></li>
             <li><a href="#">Distributor</a></li>
             <li><a href="#">Submenu</a></li>

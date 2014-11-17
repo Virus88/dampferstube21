@@ -175,6 +175,7 @@
     <Content Include="fonts\MARCSC__.TTF" />
     <Content Include="fonts\MAGNETOB.TTF" />
     <Content Include="fonts\COLLEGED.TTF" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -210,7 +211,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master">
     </Content>
-    <Content Include="Sites\home.aspx" />
+    <Content Include="hardware.aspx" />
+    <Content Include="home.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -332,11 +334,18 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Sites\home.aspx.cs">
+    <Compile Include="hardware.aspx.cs">
+      <DependentUpon>hardware.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hardware.aspx.designer.cs">
+      <DependentUpon>hardware.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sites\home.aspx.designer.cs">
+    <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
@@ -347,9 +356,18 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Sites\Hardware\" />
+    <Folder Include="Sites\Home\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

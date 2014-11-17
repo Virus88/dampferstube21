@@ -7,9 +7,7 @@
 // </automatisch generiert>
 //------------------------------------------------------------------------------
 
-namespace Dampferstube {
-    
-    
-    public partial class Home {
-    }
+
+
+public partial class Hardware {
 }
