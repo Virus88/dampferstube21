@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Dampferstube.Models;
+using System.Web.Security;
 
 namespace Dampferstube.Account
 {
@@ -27,18 +28,13 @@ namespace Dampferstube.Account
         {
             if (IsValid)
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                ApplicationUser user = manager.Find(Email.Text, Password.Text);
-                if (user != null)
+                if(FormsAuthentication.Authenticate(Username.Text, Password.Text))
                 {
-                    IdentityHelper.SignIn(manager, user, RememberMe.Checked);
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    FormsAuthentication.RedirectFromLoginPage(Username.Text, RememberMe.Checked);
                 }
                 else
                 {
-                    FailureText.Text = "Invalid username or password.";
-                    ErrorMessage.Visible = true;
+                    
                 }
             }
         }

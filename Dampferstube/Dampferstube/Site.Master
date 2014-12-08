@@ -43,7 +43,7 @@
             <div class="menu">
                 <link href="Content/Menü.css" rel="stylesheet" />
                 <ul class="menu"> <!--/*max 8 submenus */-->
-    <li><a href="home.aspx">Home</a></li>
+    <li><a href="/home.aspx">Home</a></li>
                     
 
     <li><a href="#s1">Rezeptbuch</a>
