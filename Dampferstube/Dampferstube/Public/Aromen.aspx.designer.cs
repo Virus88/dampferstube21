@@ -7,18 +7,18 @@
 // </automatisch generiert>
 //------------------------------------------------------------------------------
 
-namespace Dampferstube {
+namespace Dampferstube.Public {
     
     
-    public partial class SiteMaster {
+    public partial class Aromen {
         
         /// <summary>
-        /// MainContent-Steuerelement
+        /// Repeater1-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }

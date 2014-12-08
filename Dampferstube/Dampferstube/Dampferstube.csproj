@@ -179,6 +179,7 @@
     <Content Include="fonts\MARCSC__.TTF" />
     <Content Include="fonts\MAGNETOB.TTF" />
     <Content Include="fonts\COLLEGED.TTF" />
+    <Content Include="Public\Aromen.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Admin\Web.config" />
     <EntityDeploy Include="Models\DWH.edmx">
@@ -353,6 +354,12 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\aroman.cs">
+      <DependentUpon>DWH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Besitzer.cs">
+      <DependentUpon>DWH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DWH.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -368,8 +375,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DWH.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Hersteller.cs">
+      <DependentUpon>DWH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Kategorie.cs">
+      <DependentUpon>DWH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Public\Aromen.aspx.cs">
+      <DependentUpon>Aromen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\Aromen.aspx.designer.cs">
+      <DependentUpon>Aromen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

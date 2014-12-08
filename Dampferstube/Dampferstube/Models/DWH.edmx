@@ -4,20 +4,247 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DampferstubeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="DampferstubeModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="DampferstubeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="aromen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aroma_name" Type="nchar" MaxLength="20" />
+          <Property Name="Aroma_desc" Type="ntext" />
+          <Property Name="Hersteller" Type="int" />
+          <Property Name="Kategorie" Type="int" />
+          <Property Name="Besitzer" Type="int" />
+          <Property Name="Rating" Type="int" />
+        </EntityType>
+        <EntityType Name="Besitzer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vorname" Type="nchar" MaxLength="20" />
+          <Property Name="Nachname" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Hersteller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" />
+          <Property Name="Webseite" Type="text" />
+          <Property Name="Land" Type="nchar" MaxLength="20" />
+          <Property Name="Zertifikat" Type="bit" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_aromen_Besitzer">
+          <End Role="Besitzer" Type="Self.Besitzer" Multiplicity="0..1" />
+          <End Role="aromen" Type="Self.aromen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Besitzer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="aromen">
+              <PropertyRef Name="Besitzer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_aromen_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="0..1" />
+          <End Role="aromen" Type="Self.aromen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="aromen">
+              <PropertyRef Name="Hersteller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_aromen_Kategorie">
+          <End Role="Kategorie" Type="Self.Kategorie" Multiplicity="0..1" />
+          <End Role="aromen" Type="Self.aromen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="aromen">
+              <PropertyRef Name="Kategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DampferstubeModelStoreContainer">
+          <EntitySet Name="aromen" EntityType="Self.aromen" Schema="admin_ds" store:Type="Tables" />
+          <EntitySet Name="Besitzer" EntityType="Self.Besitzer" Schema="admin_ds" store:Type="Tables" />
+          <EntitySet Name="Hersteller" EntityType="Self.Hersteller" Schema="admin_ds" store:Type="Tables" />
+          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" Schema="admin_ds" store:Type="Tables" />
+          <AssociationSet Name="FK_aromen_Besitzer" Association="Self.FK_aromen_Besitzer">
+            <End Role="Besitzer" EntitySet="Besitzer" />
+            <End Role="aromen" EntitySet="aromen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_aromen_Hersteller" Association="Self.FK_aromen_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="aromen" EntitySet="aromen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_aromen_Kategorie" Association="Self.FK_aromen_Kategorie">
+            <End Role="Kategorie" EntitySet="Kategorie" />
+            <End Role="aromen" EntitySet="aromen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DampferstubeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="DampferstubeEntities" annotation:LazyLoadingEnabled="true" />
+        <EntityContainer Name="DampferstubeEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="aromen" EntityType="DampferstubeModel.aroman" />
+          <EntitySet Name="Besitzers" EntityType="DampferstubeModel.Besitzer" />
+          <EntitySet Name="Herstellers" EntityType="DampferstubeModel.Hersteller" />
+          <EntitySet Name="Kategories" EntityType="DampferstubeModel.Kategorie" />
+          <AssociationSet Name="FK_aromen_Besitzer" Association="DampferstubeModel.FK_aromen_Besitzer">
+            <End Role="Besitzer" EntitySet="Besitzers" />
+            <End Role="aroman" EntitySet="aromen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_aromen_Hersteller" Association="DampferstubeModel.FK_aromen_Hersteller">
+            <End Role="Hersteller" EntitySet="Herstellers" />
+            <End Role="aroman" EntitySet="aromen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_aromen_Kategorie" Association="DampferstubeModel.FK_aromen_Kategorie">
+            <End Role="Kategorie" EntitySet="Kategories" />
+            <End Role="aroman" EntitySet="aromen" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aroman">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aroma_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Aroma_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hersteller" Type="Int32" />
+          <Property Name="Kategorie" Type="Int32" />
+          <Property Name="Besitzer" Type="Int32" />
+          <Property Name="Rating" Type="Int32" />
+          <NavigationProperty Name="Besitzer1" Relationship="DampferstubeModel.FK_aromen_Besitzer" FromRole="aroman" ToRole="Besitzer" />
+          <NavigationProperty Name="Hersteller1" Relationship="DampferstubeModel.FK_aromen_Hersteller" FromRole="aroman" ToRole="Hersteller" />
+          <NavigationProperty Name="Kategorie1" Relationship="DampferstubeModel.FK_aromen_Kategorie" FromRole="aroman" ToRole="Kategorie" />
+        </EntityType>
+        <EntityType Name="Besitzer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vorname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Nachname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="aromen" Relationship="DampferstubeModel.FK_aromen_Besitzer" FromRole="Besitzer" ToRole="aroman" />
+        </EntityType>
+        <EntityType Name="Hersteller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Webseite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Land" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Zertifikat" Type="Boolean" />
+          <NavigationProperty Name="aromen" Relationship="DampferstubeModel.FK_aromen_Hersteller" FromRole="Hersteller" ToRole="aroman" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="aromen" Relationship="DampferstubeModel.FK_aromen_Kategorie" FromRole="Kategorie" ToRole="aroman" />
+        </EntityType>
+        <Association Name="FK_aromen_Besitzer">
+          <End Type="DampferstubeModel.Besitzer" Role="Besitzer" Multiplicity="0..1" />
+          <End Type="DampferstubeModel.aroman" Role="aroman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Besitzer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="aroman">
+              <PropertyRef Name="Besitzer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_aromen_Hersteller">
+          <End Type="DampferstubeModel.Hersteller" Role="Hersteller" Multiplicity="0..1" />
+          <End Type="DampferstubeModel.aroman" Role="aroman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="aroman">
+              <PropertyRef Name="Hersteller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_aromen_Kategorie">
+          <End Type="DampferstubeModel.Kategorie" Role="Kategorie" Multiplicity="0..1" />
+          <End Type="DampferstubeModel.aroman" Role="aroman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="aroman">
+              <PropertyRef Name="Kategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DampferstubeModelStoreContainer" CdmEntityContainer="DampferstubeEntities" />
+        <EntityContainerMapping StorageEntityContainer="DampferstubeModelStoreContainer" CdmEntityContainer="DampferstubeEntities" >
+          <EntitySetMapping Name="aromen">
+            <EntityTypeMapping TypeName="DampferstubeModel.aroman">
+              <MappingFragment StoreEntitySet="aromen">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Besitzer" ColumnName="Besitzer" />
+                <ScalarProperty Name="Kategorie" ColumnName="Kategorie" />
+                <ScalarProperty Name="Hersteller" ColumnName="Hersteller" />
+                <ScalarProperty Name="Aroma_desc" ColumnName="Aroma_desc" />
+                <ScalarProperty Name="Aroma_name" ColumnName="Aroma_name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Besitzers">
+            <EntityTypeMapping TypeName="DampferstubeModel.Besitzer">
+              <MappingFragment StoreEntitySet="Besitzer">
+                <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+                <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Herstellers">
+            <EntityTypeMapping TypeName="DampferstubeModel.Hersteller">
+              <MappingFragment StoreEntitySet="Hersteller">
+                <ScalarProperty Name="Zertifikat" ColumnName="Zertifikat" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="Webseite" ColumnName="Webseite" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategories">
+            <EntityTypeMapping TypeName="DampferstubeModel.Kategorie">
+              <MappingFragment StoreEntitySet="Kategorie">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
